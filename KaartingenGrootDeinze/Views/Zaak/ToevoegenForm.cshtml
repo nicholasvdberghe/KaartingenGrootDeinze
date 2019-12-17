@@ -1,0 +1,20 @@
+﻿@model KaartingenGrootDeinze.Models.Zaak
+
+@{
+    ViewBag.Title = "Toevoegen zaak";
+}
+
+<h2>Zaak toevoegen</h2>
+
+@using (Html.BeginForm("Toevoegen", "Zaak", FormMethod.Post))
+{
+    @Html.LabelFor(m => m.Naam)
+    @Html.ValidationMessageFor(m => m.Naam, "*")
+    @Html.EditorFor(m => m.Naam)
+    @Html.LabelFor(m => m.Plaats)
+    @Html.ValidationMessageFor(m => m.Plaats)
+    @Html.EditorFor(m => m.Plaats)
+
+    <input type="submit" class="btn btn-primary" value="Opslaan" />
+}
+@Html.ValidationSummary("Er zijn validatiefouten:")

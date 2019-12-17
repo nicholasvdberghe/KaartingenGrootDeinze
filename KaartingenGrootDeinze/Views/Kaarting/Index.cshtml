@@ -1,0 +1,81 @@
+﻿@using System.Linq;
+
+@model List<KaartingenGrootDeinze.Models.Kaarting>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Kaartingen</h2>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.FirstOrDefault().Datum)
+            </th>
+            <th>
+                Zaak
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FirstOrDefault().Zaak.Plaats)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FirstOrDefault().Prijzengeld)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FirstOrDefault().Startuur)
+            </th>
+            @if (User.Identity.IsAuthenticated)
+            {
+                <th>Bewerkingen</th>
+            }
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var kaarting in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(m => kaarting.Datum)
+                </td>
+                <td>
+                    @Html.DisplayFor(m => kaarting.Zaak.Naam)
+                </td>
+                <td>
+                    @Html.DisplayFor(m => kaarting.Zaak.Plaats)
+                </td>
+                @if (kaarting.Zaak.Naam != "GEEN KAARTING")
+                {
+                    <td>
+                        @Html.DisplayFor(m => kaarting.Prijzengeld)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(m => kaarting.Startuur)
+                    </td>
+                }
+                else
+                {
+                    <td>
+                        @Html.HiddenFor(m => kaarting.Prijzengeld)
+                    </td>
+                    <td>
+                        @Html.HiddenFor(m => kaarting.Startuur)
+                    </td>
+                }
+                @if (User.Identity.IsAuthenticated)
+                {
+                    <td>
+                        @Html.ActionLink("Wijzig", "WijzigenForm", new { id = kaarting.KaartingId }, new { @class = "btn btn-primary" })
+                        @Html.ActionLink("Verwijder", "VerwijderenForm", new { id = kaarting.KaartingId }, new { @class = "btn btn-primary" })
+                    </td>
+                }
+            </tr>
+        }
+    </tbody>
+</table>
+
+@if (Request.IsAuthenticated)
+{
+    @Html.ActionLink("Kaarting toevoegen", "ToevoegenForm", "Kaarting", null, new { @class = "btn btn-primary" })
+}

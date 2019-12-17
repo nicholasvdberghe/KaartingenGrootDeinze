@@ -1,0 +1,49 @@
+﻿@model List<KaartingenGrootDeinze.Models.Zaak>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Zaken</h2>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Naam</th>
+            <th>Plaats</th>
+            @if (Request.IsAuthenticated)
+            {
+                <th>Bewerkingen</th>
+            }
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var zaak in Model)
+        {
+        <tr>
+            <td>@zaak.Naam</td>
+            @if (zaak.Naam != "GEEN KAARTING")
+            {
+                <td>@zaak.Plaats</td>
+            }
+            else
+            {
+                <td>@string.Empty</td>
+            }
+
+            @if (Request.IsAuthenticated)
+            {
+                <td>
+                    @Html.ActionLink("Wijzig", "WijzigenForm", new { id = zaak.ZaakId }, new { @class = "btn btn-primary" })
+                    @Html.ActionLink("Verwijder", "VerwijderenForm", new { id = zaak.ZaakId }, new { @class = "btn btn-primary" })
+                </td>
+            }
+        </tr>
+        }
+    </tbody>
+</table>
+
+@if (Request.IsAuthenticated)
+{
+    @Html.ActionLink("Zaak toevoegen", "ToevoegenForm", "Zaak", null, new { @class = "btn btn-primary" })
+}

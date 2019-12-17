@@ -1,0 +1,26 @@
+﻿@model KaartingenGrootDeinze.Models.KaartingViewModel
+
+@{
+    ViewBag.Title = "Toevoegen kaarting";
+}
+
+<h2>Kaarting toevoegen</h2>
+
+@using (Html.BeginForm("Toevoegen", "Kaarting", FormMethod.Post, new { }))
+{
+    @Html.LabelFor(m => m.Datum)
+    @Html.ValidationMessageFor(m => m.Datum, "*")
+    @Html.EditorFor(m => m.Datum)
+    @Html.LabelFor(m => m.Zaken)
+    @Html.DropDownListFor(m => m.ZaakId, new SelectList(Model.Zaken.OrderBy(m => m.Naam), "ZaakId", "Naam"), "-- Selecteer --")
+    @Html.LabelFor(m => m.Prijzengeld)
+    @Html.ValidationMessageFor(m => m.Prijzengeld, "*")
+    @Html.EditorFor(m => m.Prijzengeld)
+    @Html.LabelFor(m => m.Startuur)
+    @Html.ValidationMessageFor(m => m.Startuur, "*")
+    @Html.EditorFor(m => m.Startuur)
+
+    <input type="submit" class="btn btn-primary" value="Opslaan" />
+}
+@Html.ValidationSummary("Er zijn validatiefouten:")
+

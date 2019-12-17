@@ -1,0 +1,22 @@
+﻿@model KaartingenGrootDeinze.Models.Zaak
+
+@{
+    ViewBag.Title = "Wijzigen zaak";
+}
+
+<h2>Zaak @Model.Naam wijzigen?</h2>
+
+@using (Html.BeginForm("Wijzigen", "Zaak", FormMethod.Post))
+{
+    @Html.HiddenFor(m => m.ZaakId)
+    @Html.LabelFor(m => m.Naam)
+    @Html.ValidationMessageFor(m => m.Naam, "*")
+    @Html.EditorFor(m => m.Naam)
+    @Html.LabelFor(m => m.Plaats)
+    @Html.ValidationMessageFor(m => m.Plaats, "*")
+    @Html.EditorFor(m => m.Plaats)
+    //@Html.HiddenFor(m => m.Kaartingen)
+
+    <input type="submit" class="btn btn-primary" value="Opslaan" />
+}
+@Html.ValidationSummary("Er zijn validatiefouten:")

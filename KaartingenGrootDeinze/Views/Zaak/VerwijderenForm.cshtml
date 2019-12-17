@@ -1,0 +1,12 @@
+﻿@model KaartingenGrootDeinze.Models.Zaak
+
+@{
+    ViewBag.Title = "Verwijderen zaak";
+}
+
+<h2>@Model.Naam verwijderen?</h2>
+
+@using (Html.BeginForm("Verwijderen", "Zaak", new { id = Model.ZaakId }))
+{
+    <input type="submit" value="Verwijderen" />
+}

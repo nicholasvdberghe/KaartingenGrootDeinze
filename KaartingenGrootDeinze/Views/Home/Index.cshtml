@@ -1,0 +1,55 @@
+﻿@using System.Collections.Generic;
+@using System.Linq;
+
+
+@model List<KaartingenGrootDeinze.Models.Kaarting>
+
+@{
+    ViewBag.Title = "Home";
+}
+
+<!--HIER KOMT CAROUSEL SPONSORS-->
+<!--HIER KOMEN KAARTINGEN VAN KOMENDE 3 WEKEN-->           <!--HIER KOMT LAATSTE NIEUWTJE: ENKEL TITEL - LENGTE VAN KAARTINGEN-->
+
+<h2>Toekomstige kaartingen</h2>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Datum</th>
+            <th>Zaak</th>
+            <th>Plaats</th>
+            <th>Prijzengeld</th>
+            <th>Startuur</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var kaarting in Model)
+        {
+            <tr>
+                <td>@Html.DisplayFor(m => kaarting.Datum)</td>
+                <td>@Html.DisplayFor(m => kaarting.Zaak.Naam)</td>
+                <td>@Html.DisplayFor(m => kaarting.Zaak.Plaats)</td>
+                @if (kaarting.Zaak.Naam != "GEEN KAARTING")
+                {
+                    <td>@Html.DisplayFor(m => kaarting.Prijzengeld)</td>
+                    <td>@Html.DisplayFor(m => kaarting.Startuur)</td>
+                }
+                else
+                {
+                    <td>@Html.HiddenFor(m => kaarting.Prijzengeld)</td>
+                    <td>@Html.HiddenFor(m => kaarting.Startuur)</td>
+                }
+
+            </tr>
+        }
+    </tbody>
+</table>
+
+<div class="row">
+    <div>
+        <p>
+            @Html.ActionLink("Toon alle kaartingen", "Index", "Kaarting", null, new { @class = "btn btn-primary" })
+        </p>
+    </div>
+</div>

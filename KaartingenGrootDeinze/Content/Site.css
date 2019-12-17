@@ -1,0 +1,199 @@
+﻿body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+    color: black;
+}
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+    display: block;
+    margin-bottom: 10px;
+}
+
+/* Styles for validation helpers -----------------------------------------------------------*/
+.field-validation-error {
+    color: #ff0000;
+}
+
+.field-validation-valid {
+    display: none;
+}
+
+.input-validation-error {
+    border: 1px solid #ff0000;
+    background-color: #ffeeee;
+}
+
+.validation-summary-errors {
+    font-weight: bold;
+    color: #ff0000;
+}
+
+.validation-summary-valid {
+    display: none;
+}
+
+/* other */
+body {
+    padding-top: 0px;
+}
+
+table {
+    margin-top: 10px;
+}
+
+btn {
+    margin-top: 10px;
+}
+
+.nav {
+    background-color: black;
+}
+
+.jumbotron {
+    color: black;
+    margin-bottom: 0px;
+    background-color: #f7fff7;
+}
+
+
+.table-striped {
+    border: 1px solid #e44144;
+}
+
+    .table-striped > tbody > tr:nth-child(odd) > td {
+        background-color: white;
+        color: black;
+        border-top-color: black;
+        border-top-style: solid;
+        padding-left: 10px;
+        padding-right: 10px;
+        padding-top: 2px;
+        padding-bottom: 2px;
+        vertical-align: text-bottom;
+    }
+
+    .table-striped > tbody > tr:nth-child(odd) > th {
+        border-top-color: #e44144;
+        color: white;
+        padding-left: 10px;
+        padding-right: 10px;
+        padding-top: 2px;
+        padding-bottom: 2px;
+        vertical-align: text-bottom;
+    }
+
+    .table-striped > tbody > tr:nth-child(even) > td {
+        color: black;
+        background-color: white;
+        border-top-color: black;
+        border-top-style: solid;
+        padding-left: 10px;
+        padding-right: 10px;
+        padding-top: 2px;
+        padding-bottom: 2px;
+        vertical-align: text-bottom;
+    }
+
+    .table-striped > tbody > tr:nth-child(even) > th {
+        border-top-color: #e44144;
+        color: white;
+        padding-left: 10px;
+        padding-right: 10px;
+        padding-top: 2px;
+        padding-bottom: 2px;
+        vertical-align: text-bottom;
+    }
+
+thead {
+    background-color: #e44144;
+    border-bottom-color: #e44144;
+    border-bottom-style: solid;
+}
+
+.btn-primary {
+    background-color: #000000;
+    color: white;
+    padding-left: 6px;
+    padding-right: 6px;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    margin: 1px;
+}
+
+.customError {
+    background-color: #e44144;
+    color: black;
+    border: 1px solid #000000;
+}
+/*
+.navbar-inverse {
+    background-color: #e44144;
+    border-bottom-color: #e44144;
+}
+
+.navbar > .container .navbar-brand {
+    color: black;
+}
+
+.navbar-pills .navbar-nav > li > a {
+    color:black;
+}
+
+.nav-pills {
+    background-color: #e44144;
+}
+
+*/
+
+.jumboflex2 {
+    display: flex;
+    flex-direction: row;
+    padding-left: 50px;
+    padding-right: 50px;
+}
+
+    .jumboflex2 #jumboimage {
+        padding-left: 50px;
+        width: 30%;
+        overflow: visible;
+    }
+
+        .jumboflex2 #jumboimage > img {
+            width: 90%;
+        }
+
+    .jumboflex2 #jumbotitle {
+        padding-right: 50px;
+        width: 70%;
+        text-align: center;
+        margin-right: 0px;
+        align-self: center;
+    }
+
+
+container {
+    background-color: black;
+}
+
+.navbar-nav > li > a {
+    color: white;
+    text-decoration-style:solid;
+    font-size:larger;
+}
