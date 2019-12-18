@@ -20,7 +20,9 @@
     @Html.ValidationMessageFor(m => m.Startuur, "*")
     @Html.EditorFor(m => m.Startuur)
 
+    var url = Url.Action("Index", "Kaarting", null);
     <input type="submit" class="btn btn-primary" value="Opslaan" />
+    <a href="@url" class="btn btn-primary">Annuleren</a>
 }
 @Html.ValidationSummary("Er zijn validatiefouten:")
 

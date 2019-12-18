@@ -6,7 +6,28 @@
 
 <h2>@Model.Naam verwijderen?</h2>
 
-@using (Html.BeginForm("Verwijderen", "Zaak", new { id = Model.ZaakId }))
+@if (Model.Kaartingen.Count > 0)
 {
-    <input type="submit" value="Verwijderen" />
+
+    if (Model.Kaartingen.Count == 1)
+    {
+        <p>Volgende kaartingdata zijn gelinkt aan deze zaak: @Html.DisplayFor(m => Model.Kaartingen.First().Datum).</p>
+    }
+    else
+    {
+        <p>Volgende kaartingdata zijn gelinkt aan deze zaak:</p>
+        <ul>
+            @foreach (var kaarting in Model.Kaartingen)
+            {
+                <li>@kaarting.Datum</li>
+            }
+        </ul>
+    }
+}
+
+@using (Html.BeginForm("Verwijderen", "Zaak", new { id = Model.ZaakId, @class = "btn btn-primary" }))
+{
+    var url = Url.Action("Index", "Zaak", null);
+    <input type="submit" value="Verwijderen" class="btn btn-primary" />
+    <a href="@url" class="btn btn-primary">Annuleren</a>
 }

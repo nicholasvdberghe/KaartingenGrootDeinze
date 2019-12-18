@@ -51,7 +51,7 @@ textarea {
 
 /* other */
 body {
-    padding-top: 0px;
+    padding-top: 0;
 }
 
 table {
@@ -68,10 +68,9 @@ btn {
 
 .jumbotron {
     color: black;
-    margin-bottom: 0px;
+    margin-bottom: 0;
     background-color: #f7fff7;
 }
-
 
 .table-striped {
     border: 1px solid #e44144;
@@ -82,20 +81,14 @@ btn {
         color: black;
         border-top-color: black;
         border-top-style: solid;
-        padding-left: 10px;
-        padding-right: 10px;
-        padding-top: 2px;
-        padding-bottom: 2px;
+        padding: 2px 10px;
         vertical-align: text-bottom;
     }
 
     .table-striped > tbody > tr:nth-child(odd) > th {
         border-top-color: #e44144;
         color: white;
-        padding-left: 10px;
-        padding-right: 10px;
-        padding-top: 2px;
-        padding-bottom: 2px;
+        padding: 2px 10px;
         vertical-align: text-bottom;
     }
 
@@ -104,20 +97,14 @@ btn {
         background-color: white;
         border-top-color: black;
         border-top-style: solid;
-        padding-left: 10px;
-        padding-right: 10px;
-        padding-top: 2px;
-        padding-bottom: 2px;
+        padding: 2px 10px;
         vertical-align: text-bottom;
     }
 
     .table-striped > tbody > tr:nth-child(even) > th {
         border-top-color: #e44144;
         color: white;
-        padding-left: 10px;
-        padding-right: 10px;
-        padding-top: 2px;
-        padding-bottom: 2px;
+        padding: 2px 10px;
         vertical-align: text-bottom;
     }
 
@@ -130,10 +117,7 @@ thead {
 .btn-primary {
     background-color: #000000;
     color: white;
-    padding-left: 6px;
-    padding-right: 6px;
-    padding-top: 2px;
-    padding-bottom: 2px;
+    padding: 2px 6px;
     margin: 1px;
 }
 
@@ -142,25 +126,6 @@ thead {
     color: black;
     border: 1px solid #000000;
 }
-/*
-.navbar-inverse {
-    background-color: #e44144;
-    border-bottom-color: #e44144;
-}
-
-.navbar > .container .navbar-brand {
-    color: black;
-}
-
-.navbar-pills .navbar-nav > li > a {
-    color:black;
-}
-
-.nav-pills {
-    background-color: #e44144;
-}
-
-*/
 
 .jumboflex2 {
     display: flex;
@@ -183,10 +148,9 @@ thead {
         padding-right: 50px;
         width: 70%;
         text-align: center;
-        margin-right: 0px;
+        margin-right: 0;
         align-self: center;
     }
-
 
 container {
     background-color: black;
@@ -194,6 +158,6 @@ container {
 
 .navbar-nav > li > a {
     color: white;
-    text-decoration-style:solid;
-    font-size:larger;
+    text-decoration-style: solid;
+    font-size: larger;
 }

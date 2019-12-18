@@ -65,6 +65,7 @@ namespace KaartingenGrootDeinze.Controllers
         public ActionResult VerwijderenForm(int id)
         {
             Zaak zaak = zaakService.GetZaakById(id);
+            zaak.Kaartingen = zaakService.GetKaartingenFromZaak(id);
             return View(zaak);
         }
 

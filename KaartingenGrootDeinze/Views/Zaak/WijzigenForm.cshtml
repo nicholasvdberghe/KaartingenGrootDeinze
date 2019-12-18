@@ -17,6 +17,8 @@
     @Html.EditorFor(m => m.Plaats)
     //@Html.HiddenFor(m => m.Kaartingen)
 
+    var url = Url.Action("Index", "Zaak", null);
     <input type="submit" class="btn btn-primary" value="Opslaan" />
+    <a href="@url" class="btn btn-primary">Annuleren</a>
 }
 @Html.ValidationSummary("Er zijn validatiefouten:")

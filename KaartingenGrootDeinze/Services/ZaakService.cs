@@ -29,6 +29,14 @@ namespace KaartingenGrootDeinze.Services
             }
         }
 
+        public List<Kaarting> GetKaartingenFromZaak(int id)
+        {
+            using (var db = new KaartingContext())
+            {
+                return db.Kaartingen.Where(m => m.ZaakId == id).ToList();
+            }
+        }
+
         public void Insert(Zaak zaak)
         {
             using (var db = new KaartingContext())

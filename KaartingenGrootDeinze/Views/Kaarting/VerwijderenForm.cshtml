@@ -9,6 +9,8 @@
 
 @using (Html.BeginForm("Verwijderen", "Kaarting", new { id = Model.KaartingId }))
 {
-    <input type="submit" value="Verwijderen" />
+    var url = Url.Action("Index", "Kaarting", null);
+    <input type="submit" value="Verwijderen" class="btn btn-primary" />
+    <a href="@url" class="btn btn-primary">Annuleren</a>
 }
 
