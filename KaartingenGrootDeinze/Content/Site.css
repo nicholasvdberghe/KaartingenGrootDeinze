@@ -1,6 +1,6 @@
 ﻿body {
-    padding-top: 50px;
-    padding-bottom: 20px;
+    padding-top: 0;
+    padding-bottom: 0;
 }
 
 /* Set padding to keep content from hitting the edges */
@@ -18,12 +18,16 @@
 }
 
 /* Set width on the form input elements since they're 100% wide by default */
-input,
-select,
-textarea {
-    max-width: 280px;
+input, select {
+    max-width: 400px;
     display: block;
     margin-bottom: 10px;
+}
+
+textarea, #Titel {
+    width: 400px;
+    display:block;
+    margin-bottom:10px;
 }
 
 /* Styles for validation helpers -----------------------------------------------------------*/
@@ -49,29 +53,53 @@ textarea {
     display: none;
 }
 
-/* other */
-body {
-    padding-top: 0;
-}
 
-table {
-    margin-top: 10px;
-}
-
-btn {
-    margin-top: 10px;
-}
-
+/*Navigation*/
 .nav {
     background-color: black;
 }
 
-.jumbotron {
-    color: black;
-    margin-bottom: 0;
-    background-color: #f7fff7;
+.navbar-nav > li > a {
+    color: white;
+    text-decoration-style: solid;
+    font-size: larger;
 }
 
+    .navbar-nav > li > a:hover {
+        background-color: #e44144;
+        text-decoration-style: solid;
+        font-size: larger
+    }
+
+/*Tables*/
+table {
+    margin-top: 10px;
+}
+
+.table-striped {
+    border: 1px solid #000000;
+}
+
+    .table-striped > tbody > tr {
+        border-bottom: 2px dashed;
+        padding: 2px 10px;
+        vertical-align: text-bottom;
+        background-color: white;
+    }
+
+        .table-striped > tbody > tr:last-child {
+            border-bottom: 1px solid;
+        }
+
+thead {
+    background-color: #000000;
+    color: white;
+    font-weight: 100;
+    border-bottom-color: #000000;
+    border-bottom-style: solid;
+}
+
+/*
 .table-striped {
     border: 1px solid #e44144;
 }
@@ -114,17 +142,49 @@ thead {
     border-bottom-style: solid;
 }
 
+  */
+
+/*Buttons*/
+btn {
+    margin-top: 10px;
+}
+
 .btn-primary {
-    background-color: #000000;
-    color: white;
-    padding: 2px 6px;
+    background-color: #e44144;
+    color: #ffffff;
+    padding: 2px 8px;
     margin: 1px;
+    border-color: #e44144;
+    font-weight: 500;
+}
+
+    .btn-primary:hover {
+        background-color: #000000;
+        color: #ffffff;
+    }
+
+/* other */
+body {
+}
+
+container {
+    background-color: black;
 }
 
 .customError {
     background-color: #e44144;
     color: black;
     border: 1px solid #000000;
+}
+
+h2 {
+    color: #e44144;
+}
+
+.jumbotron {
+    color: black;
+    margin-bottom: 0;
+    background-color: #f7fff7;
 }
 
 .jumboflex2 {
@@ -151,13 +211,3 @@ thead {
         margin-right: 0;
         align-self: center;
     }
-
-container {
-    background-color: black;
-}
-
-.navbar-nav > li > a {
-    color: white;
-    text-decoration-style: solid;
-    font-size: larger;
-}

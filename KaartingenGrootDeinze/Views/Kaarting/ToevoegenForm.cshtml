@@ -12,6 +12,7 @@
     @Html.ValidationMessageFor(m => m.Datum, "*")
     @Html.EditorFor(m => m.Datum)
     @Html.LabelFor(m => m.Zaken)
+    @Html.ValidationMessageFor(m => m.ZaakId, "*")
     @Html.DropDownListFor(m => m.ZaakId, new SelectList(Model.Zaken.OrderBy(m => m.Naam), "ZaakId", "Naam"), "-- Selecteer --")
     @Html.LabelFor(m => m.Prijzengeld)
     @Html.ValidationMessageFor(m => m.Prijzengeld, "*")
