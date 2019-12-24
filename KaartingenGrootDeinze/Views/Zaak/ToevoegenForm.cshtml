@@ -18,5 +18,6 @@
     var url = Url.Action("Index", "Zaak", null);
     <input type="submit" class="btn btn-primary" value="Opslaan" />
     <a href="@url" class="btn btn-primary">Annuleren</a>
+
+    @Html.ValidationSummary("Er zijn validatiefouten:")
 }
-@Html.ValidationSummary("Er zijn validatiefouten:")

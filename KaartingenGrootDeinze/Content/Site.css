@@ -32,7 +32,7 @@ textarea, #Titel {
 
 /* Styles for validation helpers -----------------------------------------------------------*/
 .field-validation-error {
-    color: #ff0000;
+    color: #ff9500;
 }
 
 .field-validation-valid {
@@ -40,13 +40,13 @@ textarea, #Titel {
 }
 
 .input-validation-error {
-    border: 1px solid #ff0000;
+    border: 1px solid #ff9500;
     background-color: #ffeeee;
 }
 
 .validation-summary-errors {
     font-weight: bold;
-    color: #ff0000;
+    color: #ff9500;
 }
 
 .validation-summary-valid {

@@ -15,7 +15,7 @@ namespace KaartingenGrootDeinze.Models
         [DataType(DataType.Time)]
         [Required(ErrorMessage = "{0} is verplicht.")]
         public DateTime Startuur { get; set; }
-        [Range(0, 1000, ErrorMessage = "{0} moet tussen de {1} en {2} EUR liggen.")]
+        [Range(100, 1000, ErrorMessage = "{0} moet tussen de {1} en {2} EUR liggen.")]
         [Required(ErrorMessage = "{0} is verplicht.")]
         public int Prijzengeld { get; set; }
 
