@@ -1,11 +1,10 @@
 ﻿@model KaartingenGrootDeinze.Models.Kaarting
 
 @{
-    ViewBag.Title = "VerwijderenForm";
+    ViewBag.Title = "Verwijderen";
 }
 
 <h2>Kaarting van @Model.Datum.ToShortDateString() in @ViewBag.Zaak verwijderen?</h2>
-
 
 @using (Html.BeginForm("Verwijderen", "Kaarting", new { id = Model.KaartingId }))
 {

@@ -98,5 +98,19 @@ namespace KaartingenGrootDeinze.Controllers
                 return View(form);
             }
         }
+
+        [Route("Verwijderen/{id}")]
+        public ActionResult VerwijderenForm(int id)
+        {
+            Nieuwsbericht nb = nieuwsberichtService.GetNieuwsberichtById(id);
+            return View(nb);
+        }
+
+        [HttpPost]
+        public ActionResult Verwijderen(int id)
+        {
+            nieuwsberichtService.Delete(id);
+            return RedirectToAction("Index");
+        }
     }
 }

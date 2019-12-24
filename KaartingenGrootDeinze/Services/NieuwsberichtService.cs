@@ -50,5 +50,15 @@ namespace KaartingenGrootDeinze.Services
                 }
             }
         }
+
+        public void Delete(int id)
+        {
+            using (var db = new KaartingContext())
+            {
+                Nieuwsbericht nb = db.Nieuwsberichten.Find(id);
+                db.Nieuwsberichten.Remove(nb);
+                db.SaveChanges();
+            }
+        }
     }
 }

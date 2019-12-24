@@ -11,7 +11,7 @@ namespace KaartingenGrootDeinze.Models
     public class Zaak
     {
         public int ZaakId { get; set; }
-        [Required(ErrorMessage = "Geef een naam op.")]
+        [Required(ErrorMessage = "Zaak is verplicht.")]
         public string Naam { get; set; }
         public string Plaats { get; set; }
 

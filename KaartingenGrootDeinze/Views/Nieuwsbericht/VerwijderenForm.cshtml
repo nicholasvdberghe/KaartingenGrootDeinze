@@ -1,0 +1,15 @@
+﻿@model KaartingenGrootDeinze.Models.Nieuwsbericht
+
+@{
+    ViewBag.Title = "Verwijderen";
+}
+
+<h2>Nieuwsbericht van @Model.Datum.ToShortDateString() verwijderen?</h2>
+
+@using (Html.BeginForm("Verwijderen", "Nieuwsbericht", new { id = Model.NieuwsberichtId }))
+{
+    var url = Url.Action("Index", "Nieuwsbericht", null);
+    <input value="Verwijderen" type="submit" class="btn btn-primary"/>
+    <a href=@url  class="btn btn-primary">Annuleren</a>
+}
+

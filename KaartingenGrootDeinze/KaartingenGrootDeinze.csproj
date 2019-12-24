@@ -302,6 +302,7 @@
     <Content Include="Views\Nieuwsbericht\ToevoegenForm.cshtml" />
     <Content Include="Views\Nieuwsbericht\WijzigenForm.cshtml" />
     <Content Include="Views\Nieuwsbericht\Details.cshtml" />
+    <Content Include="Views\Nieuwsbericht\VerwijderenForm.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

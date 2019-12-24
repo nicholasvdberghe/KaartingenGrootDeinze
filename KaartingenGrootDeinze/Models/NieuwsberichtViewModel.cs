@@ -10,13 +10,13 @@ namespace KaartingenGrootDeinze.Models
     {
         public int NieuwsberichtId { get; set; }
         [DataType(DataType.Text)]
-        [Required(ErrorMessage = "Geef een titel op.")]
+        [Required(ErrorMessage = "{0} is verplicht.")]
         public string Titel { get; set; }
         [DataType(DataType.MultilineText)]
-        [Required(ErrorMessage = "Vul het bericht in.")]
+        [Required(ErrorMessage = "{0} is verplicht.")]
         public string Inhoud { get; set; }
         [DataType(DataType.Date)]
-        [Required(ErrorMessage = "Geef een datum op.")]
+        [Required(ErrorMessage = "{0} is verplicht.")]
         public DateTime Datum { get; set; }
 
         [Display(Name = "Kaarting")]
