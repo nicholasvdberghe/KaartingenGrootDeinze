@@ -172,6 +172,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\KaartingController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\NieuwsberichtController.cs" />
     <Compile Include="Controllers\ZaakController.cs" />
     <Compile Include="DAL\KaartingContext.cs" />
     <Compile Include="Global.asax.cs">
@@ -205,6 +206,14 @@
     <Compile Include="Migrations\201912191602440_Nieuwsbericht.Designer.cs">
       <DependentUpon>201912191602440_Nieuwsbericht.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201912191658442_Nieuwsbericht2.cs" />
+    <Compile Include="Migrations\201912191658442_Nieuwsbericht2.Designer.cs">
+      <DependentUpon>201912191658442_Nieuwsbericht2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201912191834483_NieuwsberichtVM.cs" />
+    <Compile Include="Migrations\201912191834483_NieuwsberichtVM.Designer.cs">
+      <DependentUpon>201912191834483_NieuwsberichtVM.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -212,9 +221,11 @@
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\KaartingViewModel.cs" />
     <Compile Include="Models\Nieuwsbericht.cs" />
+    <Compile Include="Models\NieuwsberichtViewModel.cs" />
     <Compile Include="Models\Zaak.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\KaartingService.cs" />
+    <Compile Include="Services\NieuwsberichtService.cs" />
     <Compile Include="Services\ZaakService.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -287,6 +298,10 @@
     <Content Include="Views\Zaak\WijzigenForm.cshtml" />
     <Content Include="Views\Zaak\VerwijderenForm.cshtml" />
     <Content Include="Views\Error\NotFound.cshtml" />
+    <Content Include="Views\Nieuwsbericht\Index.cshtml" />
+    <Content Include="Views\Nieuwsbericht\ToevoegenForm.cshtml" />
+    <Content Include="Views\Nieuwsbericht\WijzigenForm.cshtml" />
+    <Content Include="Views\Nieuwsbericht\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -325,6 +340,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201912191602440_Nieuwsbericht.resx">
       <DependentUpon>201912191602440_Nieuwsbericht.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201912191658442_Nieuwsbericht2.resx">
+      <DependentUpon>201912191658442_Nieuwsbericht2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201912191834483_NieuwsberichtVM.resx">
+      <DependentUpon>201912191834483_NieuwsberichtVM.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

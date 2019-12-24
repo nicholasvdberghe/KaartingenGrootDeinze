@@ -13,6 +13,7 @@ namespace KaartingenGrootDeinze.Controllers
     {
         private KaartingService kaartingService = new KaartingService();
         private ZaakService zaakService = new ZaakService();
+        private NieuwsberichtService nieuwsberichtService = new NieuwsberichtService();
 
         [Route]
         public ActionResult Index()

@@ -10,17 +10,32 @@ namespace KaartingenGrootDeinze.Services
 {
     public class KaartingService
     {
-        public List<Kaarting> GetToekomstigeKaartingen (DateTime laatsteDatum)
+
+        public List<Kaarting> GetGefilterdeKaartingen(DateTime ondergrens, DateTime? bovengrens)
         {
             using (var db = new KaartingContext())
             {
-                List<Kaarting> kaartingen = new List<Kaarting>();
-                kaartingen = db.Kaartingen.Include("Zaak")
-                    .Where(k => k.Datum <= laatsteDatum)
-                    .OrderBy(k => k.Datum)
-                    .ThenBy(k => k.Startuur)
-                    .ToList();
-                return kaartingen;
+                //er is een ookbovengrens
+                if (bovengrens != null)
+                {
+                    List<Kaarting> kaartingen = new List<Kaarting>();
+                    kaartingen = db.Kaartingen.Include("Zaak")
+                        .Where(k => (k.Datum >= ondergrens) && (k.Datum <= bovengrens))
+                        .OrderBy(k => k.Datum)
+                        .ThenBy(k => k.Startuur)
+                        .ToList();
+                    return kaartingen;
+                }
+                else
+                {
+                    List<Kaarting> kaartingen = new List<Kaarting>();
+                    kaartingen = db.Kaartingen.Include("Zaak")
+                        .Where(k => k.Datum >= ondergrens)
+                        .OrderBy(k => k.Datum)
+                        .ThenBy(k => k.Startuur)
+                        .ToList();
+                    return kaartingen;
+                }
             }
         }
 

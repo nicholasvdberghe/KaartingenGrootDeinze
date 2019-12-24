@@ -1,0 +1,25 @@
+﻿@model KaartingenGrootDeinze.Models.NieuwsberichtViewModel
+
+@{
+    ViewBag.Title = "Toevoegen nieuwsbericht";
+}
+
+<h2>Nieuwsbericht toevoegen</h2>
+
+@using (Html.BeginForm("Toevoegen", "Nieuwsbericht", FormMethod.Post))
+{
+    @Html.HiddenFor(m => m.Datum)
+    @Html.LabelFor(m => m.Titel)
+    @Html.ValidationMessageFor(m => m.Titel)
+    @Html.EditorFor(m => m.Titel)
+    @Html.LabelFor(m => m.Inhoud)
+    @Html.ValidationMessageFor(m => m.Inhoud)
+    @Html.EditorFor(m => m.Inhoud)
+    @Html.LabelFor(m => m.Kaartingen)
+    @Html.DropDownListFor(m => m.KaartingId, new SelectList(Model.Kaartingen, "KaartingId", "Datum"), "-- Selecteer --")
+
+    var url = Url.Action("Index", "Nieuwsbericht", null);
+    <input type="submit" class="btn btn-primary" value="Opslaan" />
+    <a href="@url" class="btn btn-primary">Annuleren</a>
+}
+@Html.ValidationSummary("Er zijn validatiefouten:")

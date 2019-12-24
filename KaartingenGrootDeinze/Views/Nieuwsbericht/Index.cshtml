@@ -1,0 +1,50 @@
+﻿@model List<KaartingenGrootDeinze.Models.Nieuwsbericht>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Nieuwsberichten</h2>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>@Html.DisplayNameFor(model => model.First().Datum)</th>
+            <th>@Html.DisplayNameFor(model => model.First().Titel)</th>
+            <th>Kaarting</th>
+            @if (Request.IsAuthenticated)
+            {
+                <th>Bewerkingen</th>
+            }
+            else
+            {
+                <th></th>
+            }
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var bericht in Model)
+        {
+            <tr>
+                <td>@Html.DisplayFor(b => bericht.Datum)</td>
+                <td>@bericht.Titel</td>
+                <td>@bericht.Kaarting.Datum.ToShortDateString()</td>
+                <td>
+                    @Html.ActionLink("Details", "Details", new { id = bericht.NieuwsberichtId }, new { @class = "btn btn-primary" })
+                    @if (Request.IsAuthenticated)
+                    {
+                        @Html.ActionLink("Wijzig", "WijzigenForm", new { id = bericht.NieuwsberichtId }, new { @class = "btn btn-primary" })
+                        @Html.ActionLink("Verwijder", "VerwijderenForm", new { id = bericht.NieuwsberichtId }, new { @class = "btn btn-primary" })
+                    }
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+
+@if (Request.IsAuthenticated)
+{
+    @Html.ActionLink("Nieuwsbericht toevoegen", "ToevoegenForm", "Nieuwsbericht", null, new { @class = "btn btn-primary" })
+}

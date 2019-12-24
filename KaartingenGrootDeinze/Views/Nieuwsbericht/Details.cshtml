@@ -1,0 +1,20 @@
+﻿@model KaartingenGrootDeinze.Models.Nieuwsbericht
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<dl class="dl-horizontal">
+    <dt class="col-md-2" style="text-align:right">@Html.DisplayNameFor(m => m.Titel)</dt>
+    <dd class="col-md-10">@Html.DisplayFor(m => m.Titel)</dd>
+
+    <dt class="col-md-2" style="text-align:right">@Html.DisplayNameFor(m => m.Inhoud)</dt>
+    <dd class="col-md-10">@Html.DisplayFor(m => m.Inhoud)</dd>
+
+    <dt class="col-md-2" style="text-align:right">@Html.DisplayNameFor(m => m.Kaarting)</dt>
+    <dd class="col-md-10">@Html.DisplayFor(m => m.Kaarting.Datum)</dd>
+</dl>
+
+@Html.ActionLink("Naar Nieuwsberichten", "Index", null, new { @class = "btn btn-primary"})

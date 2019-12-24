@@ -11,12 +11,13 @@ namespace KaartingenGrootDeinze.Controllers
     {
         private KaartingService kaartingService = new KaartingService();
         private ZaakService zaakService = new ZaakService();
+        private NieuwsberichtService nieuwsberichtService = new NieuwsberichtService();
 
         [Route]
         public ActionResult Index()
         {
-            var eindDatum = DateTime.Now.AddDays(366);
-            List<Kaarting> kaartingen = kaartingService.GetToekomstigeKaartingen(eindDatum);
+            var ondergrens = DateTime.Now;
+            List<Kaarting> kaartingen = kaartingService.GetGefilterdeKaartingen(ondergrens, null);
             return View(kaartingen);
         }
 

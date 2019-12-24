@@ -20,7 +20,5 @@ namespace KaartingenGrootDeinze.Models
 
         public int ZaakId { get; set; }
         public virtual Zaak Zaak { get; set; }
-
-        //public ICollection<Nieuwsbericht> Nieuwsberichten { get; set; }
     }
 }

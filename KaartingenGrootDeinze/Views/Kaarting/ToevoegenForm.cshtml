@@ -6,7 +6,7 @@
 
 <h2>Kaarting toevoegen</h2>
 
-@using (Html.BeginForm("Toevoegen", "Kaarting", FormMethod.Post, new { }))
+@using (Html.BeginForm("Toevoegen", "Kaarting", FormMethod.Post))
 {
     @Html.LabelFor(m => m.Datum)
     @Html.ValidationMessageFor(m => m.Datum, "*")

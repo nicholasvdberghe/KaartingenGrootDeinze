@@ -1,0 +1,28 @@
+﻿@model KaartingenGrootDeinze.Models.NieuwsberichtViewModel
+
+@{
+    ViewBag.Title = "Wijzigen nieuwsbericht";
+}
+
+<h2>Nieuwsbericht van @Model.Datum.ToShortDateString() wijzigen?</h2>
+
+@using (Html.BeginForm("Wijzigen", "Nieuwsbericht", FormMethod.Post))
+{
+    @Html.HiddenFor(m => m.NieuwsberichtId)
+    @Html.LabelFor(m => m.Datum)
+    @Html.ValidationMessageFor(m => m.Datum, "*")
+    @Html.EditorFor(m => m.Datum)
+    @Html.LabelFor(m => m.Titel)
+    @Html.ValidationMessageFor(m => m.Titel)
+    @Html.EditorFor(m => m.Titel)
+    @Html.LabelFor(m => m.Inhoud)
+    @Html.ValidationMessageFor(m => m.Inhoud)
+    @Html.EditorFor(m => m.Inhoud)
+    @Html.LabelFor(m => m.KaartingId)
+    @Html.DropDownListFor(m => m.KaartingId, new SelectList(Model.Kaartingen.OrderBy(m => m.Datum).ToList(), "KaartingId", "Datum"))
+
+    var url = Url.Action("Index", "Nieuwsbericht", null);
+    <input type="submit" class="btn btn-primary" value="Opslaan" />
+    <a href="@url" class="btn btn-primary">Annuleren</a>
+}
+@Html.ValidationSummary("Er zijn validatiefouten:")
