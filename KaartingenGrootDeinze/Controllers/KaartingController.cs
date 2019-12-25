@@ -3,6 +3,7 @@ using KaartingenGrootDeinze.Services;
 using System;
 using System.Collections.Generic;
 using System.Web.Mvc;
+using System.IO;
 
 namespace KaartingenGrootDeinze.Controllers
 {
@@ -115,6 +116,26 @@ namespace KaartingenGrootDeinze.Controllers
         {
             kaartingService.Delete(id);
             return RedirectToAction("Index");
+        }
+
+
+        //public FileResult
+        public ActionResult ExportToPDF()
+        {
+            MemoryStream memStream = new MemoryStream();
+            memStream = kaartingService.CreatePDF(memStream);
+            string fileName = "Kaartingen.pdf";
+
+            return File(memStream, "application/pdf", fileName);
+            /*
+            string bestandNaam = "Kaartingen.pdf";
+            string bestandPad = AppDomain.CurrentDomain.BaseDirectory + "/Path/To/File" + bestandNaam;
+            String strPathAndQuery = HttpContext.Request.Url.PathAndQuery;
+            String strUrl = HttpContext.Request.Url.AbsoluteUri.Replace(strPathAndQuery, "/");
+            String pad = strUrl + "kaartingen.pdf";
+            byte[] fileBytes = System.IO.File.ReadAllBytes(pad);
+            return File(fileBytes, "application/pdf");
+            */
         }
     }
 }

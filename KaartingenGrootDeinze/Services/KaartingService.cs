@@ -5,6 +5,10 @@ using System.Web;
 using KaartingenGrootDeinze.Models;
 using KaartingenGrootDeinze.DAL;
 using System.Data.Entity;
+using System.IO;
+using iText.Layout;
+using iText.Kernel.Pdf;
+using iText.Layout.Element;
 
 namespace KaartingenGrootDeinze.Services
 {
@@ -84,6 +88,19 @@ namespace KaartingenGrootDeinze.Services
                 db.Kaartingen.Remove(kaarting);
                 db.SaveChanges();
             }
+        }
+
+        public MemoryStream CreatePDF(MemoryStream memStream)
+        {
+            PdfWriter writer = new PdfWriter(memStream);
+            PdfDocument pdfDoc = new PdfDocument(writer);
+            Document doc = new Document(pdfDoc);
+            doc.SetMargins(0f, 0f, 0f, 0f);
+            doc.Add(new Paragraph("Hello World!"));
+            doc.Close();
+            pdfDoc.Close();
+
+            return memStream;
         }
 
     }
