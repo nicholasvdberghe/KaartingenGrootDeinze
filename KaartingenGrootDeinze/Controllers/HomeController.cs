@@ -15,12 +15,9 @@ namespace KaartingenGrootDeinze.Controllers
 
         public ActionResult Index()
         {
-            var ondergrens = DateTime.Now;
+            var ondergrens = DateTime.Today;
             var bovengrens = DateTime.Now.AddDays(21);
             List<Kaarting> kaartingen = kaartingService.GetGefilterdeKaartingen(ondergrens, bovengrens);
-            //ViewBag.Bericht = berichtService.GetLaatsteNieuwsbericht().Inhoud;            
-            //List<Nieuwsbericht> berichten = berichtService.GetRecenteNieuwsberichten();
-            //ViewBag.Berichten = berichten;
             string laatsteBericht = nieuwsberichtService.GetAlleNieuwsberichten().Last().Inhoud;
             ViewBag.Bericht = laatsteBericht;
             return View(kaartingen);

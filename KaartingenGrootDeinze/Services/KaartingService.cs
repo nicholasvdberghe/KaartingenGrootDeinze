@@ -1,25 +1,25 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using KaartingenGrootDeinze.Models;
+﻿using iText.Kernel.Pdf;
+using iText.Layout;
+using iText.Layout.Borders;
+using iText.Layout.Element;
+using iText.Layout.Properties;
 using KaartingenGrootDeinze.DAL;
+using KaartingenGrootDeinze.Models;
+using System;
+using System.Collections.Generic;
 using System.Data.Entity;
 using System.IO;
-using iText.Layout;
-using iText.Kernel.Pdf;
-using iText.Layout.Element;
+using System.Linq;
 
 namespace KaartingenGrootDeinze.Services
 {
     public class KaartingService
     {
-
         public List<Kaarting> GetGefilterdeKaartingen(DateTime ondergrens, DateTime? bovengrens)
         {
             using (var db = new KaartingContext())
             {
-                //er is een ookbovengrens
+                //er is een ookb ovengrens
                 if (bovengrens != null)
                 {
                     List<Kaarting> kaartingen = new List<Kaarting>();
@@ -90,16 +90,50 @@ namespace KaartingenGrootDeinze.Services
             }
         }
 
-        public MemoryStream CreatePDF(MemoryStream memStream)
+        public MemoryStream CreatePDF(MemoryStream memStream, List<Kaarting> kaartingen)
         {
             PdfWriter writer = new PdfWriter(memStream);
             PdfDocument pdfDoc = new PdfDocument(writer);
-            Document doc = new Document(pdfDoc);
-            doc.SetMargins(0f, 0f, 0f, 0f);
-            doc.Add(new Paragraph("Hello World!"));
-            doc.Close();
-            pdfDoc.Close();
+            Document doc = new Document(pdfDoc, new iText.Kernel.Geom.PageSize(612, 792));
+            doc.SetMargins(40f, 40f, 40f, 40f);
 
+            Table table = new Table(5);
+
+            foreach (var kaarting in kaartingen)
+            {
+                Cell cellDatum = new Cell(1, 1).Add(new Paragraph(kaarting.Datum.ToLongDateString())).SetBorder(Border.NO_BORDER).SetTextAlignment(TextAlignment.RIGHT).SetPaddingRight(20f);
+                table.AddCell(cellDatum);
+                if (kaarting.Zaak.Naam != "GEEN KAARTING")
+                {
+                    Cell cellZaakNaam = new Cell(1, 1).Add(new Paragraph(kaarting.Zaak.Naam)).SetBorder(Border.NO_BORDER).SetPaddingRight(25f);
+                    table.AddCell(cellZaakNaam);
+                    Cell cellZaakPlaats = new Cell(1, 1).Add(new Paragraph(kaarting.Zaak.Plaats)).SetBorder(Border.NO_BORDER).SetPaddingRight(40f);
+                    table.AddCell(cellZaakPlaats);
+
+                    Cell cellPrijzengeld = new Cell(1, 1).Add(new Paragraph(kaarting.Prijzengeld.ToString("€ 0+"))).SetBorder(Border.NO_BORDER).SetPaddingRight(20f);
+                    table.AddCell(cellPrijzengeld);
+
+                    Cell cellStartuur = new Cell(1, 1).Add(new Paragraph(kaarting.Startuur.ToString("HH:mm u."))).SetBorder(Border.NO_BORDER);
+                    table.AddCell(cellStartuur);
+                }
+                else
+                {
+                    Cell cell = new Cell(1, 4).Add(new Paragraph(kaarting.Zaak.Naam)).SetBorder(Border.NO_BORDER);
+                    table.AddCell(cell);
+                }
+            }
+            try
+            {
+                doc.Add(new Paragraph("KAARTINGEN BIEDEN 2019 - DEINZE EN OMSTREKEN").SetBold());
+                doc.Add(table);
+                doc.Add(new Paragraph("Inschrijvingen & inlichtingen bij Gaby, Luc, Roger").SetBold());
+                doc.Add(new Paragraph("Tel.09/386.56.32 - 0474/37.14.09 (Gaby) of 0476/96.16.91 (Luc)").SetBold());
+                doc.Close();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+            }
             return memStream;
         }
 

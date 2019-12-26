@@ -17,7 +17,7 @@ namespace KaartingenGrootDeinze.Controllers
         [Route]
         public ActionResult Index()
         {
-            var ondergrens = DateTime.Now;
+            var ondergrens = DateTime.Today;
             List<Kaarting> kaartingen = kaartingService.GetGefilterdeKaartingen(ondergrens, null);
             return View(kaartingen);
         }
@@ -89,7 +89,7 @@ namespace KaartingenGrootDeinze.Controllers
                 kaarting.Zaak = zaak;
                 if (zaak.Naam == "GEEN KAARTING")
                 {
-                    kaarting.Prijzengeld = 0;
+                    kaarting.Prijzengeld = 100;
                     kaarting.Startuur = new DateTime(kaarting.Datum.Year, kaarting.Datum.Month, kaarting.Datum.Day, 0, 0, 0);
                 }
                 else
@@ -118,24 +118,21 @@ namespace KaartingenGrootDeinze.Controllers
             return RedirectToAction("Index");
         }
 
-
-        //public FileResult
-        public ActionResult ExportToPDF()
+        [Route("PDF")]
+        public FileResult ExportToPDF()
         {
+            List<Kaarting> kaartingen = new List<Kaarting>();
+            kaartingen = kaartingService.GetGefilterdeKaartingen(DateTime.Today, null);
             MemoryStream memStream = new MemoryStream();
-            memStream = kaartingService.CreatePDF(memStream);
-            string fileName = "Kaartingen.pdf";
+            memStream = kaartingService.CreatePDF(memStream, kaartingen);
 
-            return File(memStream, "application/pdf", fileName);
-            /*
-            string bestandNaam = "Kaartingen.pdf";
-            string bestandPad = AppDomain.CurrentDomain.BaseDirectory + "/Path/To/File" + bestandNaam;
-            String strPathAndQuery = HttpContext.Request.Url.PathAndQuery;
-            String strUrl = HttpContext.Request.Url.AbsoluteUri.Replace(strPathAndQuery, "/");
-            String pad = strUrl + "kaartingen.pdf";
-            byte[] fileBytes = System.IO.File.ReadAllBytes(pad);
-            return File(fileBytes, "application/pdf");
-            */
+            byte[] bytesStream = memStream.ToArray();
+
+            memStream = new MemoryStream();
+            memStream.Write(bytesStream, 0, bytesStream.Length);
+            memStream.Position = 0;
+
+            return File(memStream, "application/pdf");
         }
     }
 }
