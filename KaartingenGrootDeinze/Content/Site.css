@@ -210,3 +210,14 @@ h2 {
             width: 90%;
             max-width: 400px;
         }
+
+.dl-horizontal dt {
+    text-align: left;
+    width: 80px;
+    padding-bottom: 5px;
+}
+
+.dl-horizontal dd {
+    margin-left: 100px;
+    padding-bottom: 5px;
+}
