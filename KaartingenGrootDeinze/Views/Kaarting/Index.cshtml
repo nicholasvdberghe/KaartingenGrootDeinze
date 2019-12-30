@@ -6,7 +6,22 @@
     ViewBag.Title = "Kaartingen";
 }
 
-<h2>Kaartingen</h2>
+<div class="row">
+    <h2 class="col-md-7">Kaartingen</h2>
+    <p id="sponsorTekst" class="col-md-2">Met dank aan:</p>
+    <div id="sponsorsCarousel" class="carousel slide col-md-3" data-ride="carousel" data-interval="3000">
+        <!-- Wrapper for slides -->
+        <div class="carousel-inner" role="listbox" style="align-items:center">
+            <div class="item active">
+                <span><a href="http://www.bandenvandewalle.be/" target="_blank">Banden Vandewalle</a></span>
+            </div>
+            <div class="item">
+                <span>Bandencentrale Vande Weghe</span>
+            </div>
+        </div>
+    </div>
+
+</div>
 
 <table class="table table-striped" id="tableAlleKaartingen">
     <thead>
@@ -74,18 +89,11 @@
         }
     </tbody>
 </table>
-<div id="sponsors">
-    <p style="font-weight:bold">Sponsors</p>
-    <p>Bandencentrale Vande Weghe</p>
-    <p><a href="http://www.bandenvandewalle.be/" target="_blank">Banden Vandewalle</a></p>
-</div>
 
-<p>
-    @Html.ActionLink("Print kaartingen", "ExportToPDF", "Kaarting", null, new { @class = "btn btn-primary", @id = "btnPrint", @target = "_blank" })
 
-    @if (Request.IsAuthenticated)
-    {
-        @Html.ActionLink("Kaarting toevoegen", "ToevoegenForm", "Kaarting", null, new { @class = "btn btn-primary", @id = "btnKaartingAdd" })
-    }
+@Html.ActionLink("Print kaartingen", "ExportToPDF", "Kaarting", null, new { @class = "btn btn-primary", @id = "btnPrint", @target = "_blank" })
 
-</p>
+@if (Request.IsAuthenticated)
+{
+    @Html.ActionLink("Kaarting toevoegen", "ToevoegenForm", "Kaarting", null, new { @class = "btn btn-primary", @id = "btnKaartingAdd" })
+}

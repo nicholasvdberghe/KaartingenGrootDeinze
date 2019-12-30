@@ -99,14 +99,6 @@ thead {
     border-bottom-style: solid;
 }
 
-#tableAlleKaartingen {
-    float:left;
-    min-width: 560px;
-    max-width:950px;
-    width:82%;
-    margin-right:5px;
-}
-
 /*Buttons*/
 btn {
     margin-top: 10px;
@@ -125,11 +117,6 @@ btn {
         background-color: #000000;
         color: #ffffff;
     }
-
-#btnPrint, #btnKaartingAdd {
-    clear:left;
-    clear:right;
-}
 
 /* other */
 body {
@@ -160,11 +147,11 @@ h2 {
 }
 
     .jumboflex #jumbotitle {
-        float:left;
-        padding:10px;
+        float: left;
+        padding: 10px;
         text-align: center;
         width: 70%;
-        min-width:200px;
+        min-width: 200px;
     }
 
     .jumboflex #jumboimage {
@@ -194,30 +181,35 @@ h2 {
     width: 250px;
 }
 
-#sponsors {
-    min-width:120px;
-    width:15%;
-    padding: 5px 5px;
-    border: 1px solid;
-    margin: 10px 0;
-    display:inline-block;
-}
-
-#sponsors > p {
-    margin-top:5px;
-    margin-bottom:0;
-}
-
-.body-content > p {
-    display:block;
-    width:100%;
-    float:left;
-}
-
-footer > p {
-    float:left;   
-}
-
 #laatsteNieuwsbericht {
-    margin-bottom:30px;
+    margin-bottom: 30px;
+}
+
+#sponsorTekst {
+    margin-top: 20px;
+    height:33px;
+    padding:5px;
+}
+
+#sponsorsCarousel {
+    margin-top: 20px;
+}
+
+.carousel-inner {
+    text-align: center;
+    font-weight: bold;
+    height: auto;
+    margin-top: auto;
+    margin-bottom: auto;
+    color:white;
+}
+
+.item {
+    padding: 5px;
+    height: inherit;
+    background-color: #e44144;
+}
+
+.item > span > a {
+    color:white;
 }
