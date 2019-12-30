@@ -39,7 +39,15 @@
         @RenderBody()
         <hr />
         <footer>
-            <p>&copy; @DateTime.Now.Year - Kaartingen Deinze en omstreken</p>
+            <div class="row">
+                <div class="col-md-6">
+                    <p>&copy; @DateTime.Now.Year - Kaartingen Deinze en omstreken</p>
+                </div>
+                <div class="col-md-6">
+                    <p style="text-align:right">Made by <span style="font-weight:bold">Ink Sniper</span></p>
+                </div>
+            </div>
+            
         </footer>
     </div>
 

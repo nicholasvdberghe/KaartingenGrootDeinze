@@ -8,7 +8,7 @@
 
 <h2>Kaartingen</h2>
 
-<table class="table table-striped">
+<table class="table table-striped" id="tableAlleKaartingen">
     <thead>
         <tr>
             <th>
@@ -74,8 +74,18 @@
         }
     </tbody>
 </table>
+<div id="sponsors">
+    <p style="font-weight:bold">Sponsors</p>
+    <p>Bandencentrale Vande Weghe</p>
+    <p><a href="http://www.bandenvandewalle.be/" target="_blank">Banden Vandewalle</a></p>
+</div>
 
-@if (Request.IsAuthenticated)
-{
-    @Html.ActionLink("Kaarting toevoegen", "ToevoegenForm", "Kaarting", null, new { @class = "btn btn-primary" })
-}
+<p>
+    @Html.ActionLink("Print kaartingen", "ExportToPDF", "Kaarting", null, new { @class = "btn btn-primary", @id = "btnPrint", @target = "_blank" })
+
+    @if (Request.IsAuthenticated)
+    {
+        @Html.ActionLink("Kaarting toevoegen", "ToevoegenForm", "Kaarting", null, new { @class = "btn btn-primary", @id = "btnKaartingAdd" })
+    }
+
+</p>

@@ -9,7 +9,7 @@
 }
 
 <h2>Laatste nieuwsbericht</h2>
-<p>@ViewBag.Bericht</p>
+<p id="laatsteNieuwsbericht">@ViewBag.Bericht</p>
 
 <h2>Toekomstige kaartingen</h2>
 
@@ -45,7 +45,5 @@
         }
     </tbody>
 </table>
-
-@Html.ActionLink("Download kaartingen", "ExportToPDF", "Kaarting", null, new { @class = "btn btn-primary" })
 
 @Html.ActionLink("Toon alle kaartingen", "Index", "Kaarting", null, new { @class = "btn btn-primary" })

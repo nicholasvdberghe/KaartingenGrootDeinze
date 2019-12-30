@@ -99,50 +99,13 @@ thead {
     border-bottom-style: solid;
 }
 
-/*
-.table-striped {
-    border: 1px solid #e44144;
+#tableAlleKaartingen {
+    float:left;
+    min-width: 560px;
+    max-width:950px;
+    width:82%;
+    margin-right:5px;
 }
-
-    .table-striped > tbody > tr:nth-child(odd) > td {
-        background-color: white;
-        color: black;
-        border-top-color: black;
-        border-top-style: solid;
-        padding: 2px 10px;
-        vertical-align: text-bottom;
-    }
-
-    .table-striped > tbody > tr:nth-child(odd) > th {
-        border-top-color: #e44144;
-        color: white;
-        padding: 2px 10px;
-        vertical-align: text-bottom;
-    }
-
-    .table-striped > tbody > tr:nth-child(even) > td {
-        color: black;
-        background-color: white;
-        border-top-color: black;
-        border-top-style: solid;
-        padding: 2px 10px;
-        vertical-align: text-bottom;
-    }
-
-    .table-striped > tbody > tr:nth-child(even) > th {
-        border-top-color: #e44144;
-        color: white;
-        padding: 2px 10px;
-        vertical-align: text-bottom;
-    }
-
-thead {
-    background-color: #e44144;
-    border-bottom-color: #e44144;
-    border-bottom-style: solid;
-}
-
-  */
 
 /*Buttons*/
 btn {
@@ -162,6 +125,11 @@ btn {
         background-color: #000000;
         color: #ffffff;
     }
+
+#btnPrint, #btnKaartingAdd {
+    clear:left;
+    clear:right;
+}
 
 /* other */
 body {
@@ -220,4 +188,36 @@ h2 {
 .dl-horizontal dd {
     margin-left: 100px;
     padding-bottom: 5px;
+}
+
+#Afzender, #Boodschap, #Emailadres, #Onderwerp {
+    width: 250px;
+}
+
+#sponsors {
+    min-width:120px;
+    width:15%;
+    padding: 5px 5px;
+    border: 1px solid;
+    margin: 10px 0;
+    display:inline-block;
+}
+
+#sponsors > p {
+    margin-top:5px;
+    margin-bottom:0;
+}
+
+.body-content > p {
+    display:block;
+    width:100%;
+    float:left;
+}
+
+footer > p {
+    float:left;   
+}
+
+#laatsteNieuwsbericht {
+    margin-bottom:30px;
 }

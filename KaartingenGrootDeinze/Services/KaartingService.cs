@@ -126,8 +126,8 @@ namespace KaartingenGrootDeinze.Services
             {
                 doc.Add(new Paragraph("KAARTINGEN BIEDEN 2019 - DEINZE EN OMSTREKEN").SetBold());
                 doc.Add(table);
-                doc.Add(new Paragraph("Inschrijvingen & inlichtingen bij Gaby, Luc, Roger").SetBold());
-                doc.Add(new Paragraph("Tel.09/386.56.32 - 0474/37.14.09 (Gaby) of 0476/96.16.91 (Luc)").SetBold());
+                doc.Add(new Paragraph("Inschrijvingen & inlichtingen bij Gaby (09/386.56.32 - 0474/37.14.09) en Roger").SetBold());
+                doc.Add(new Paragraph("Info: http://kaartingendeinze.inksniper.be").SetBold());
                 doc.Close();
             }
             catch (Exception e)

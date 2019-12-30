@@ -1,0 +1,28 @@
+﻿@model KaartingenGrootDeinze.Models.ContactViewModel
+
+@{
+    ViewBag.Title = "Contact";
+}
+<h2>@ViewBag.Title</h2>
+
+<p>Vul onderstaand formulier:</p>
+
+@using (Html.BeginForm("Contacteren", "Home", FormMethod.Post))
+{
+    @Html.LabelFor(m => m.Afzender)
+    @Html.ValidationMessageFor(m => m.Afzender, "*")
+    @Html.EditorFor(m => m.Afzender)
+    @Html.LabelFor(m => m.Emailadres)
+    @Html.ValidationMessageFor(m => m.Emailadres, "*")
+    @Html.EditorFor(m => m.Emailadres)
+    @Html.LabelFor(m => m.Onderwerp)
+    @Html.ValidationMessageFor(m => m.Onderwerp, "*")
+    @Html.EditorFor(m => m.Onderwerp)
+    @Html.LabelFor(m => m.Boodschap)
+    @Html.ValidationMessageFor(m => m.Boodschap, "*")
+    @Html.EditorFor(m => m.Boodschap)
+
+    <input value="Versturen" type="submit" class="btn btn-primary"/>
+
+    @Html.ValidationSummary("Er zijn validatiefouten:")
+}
