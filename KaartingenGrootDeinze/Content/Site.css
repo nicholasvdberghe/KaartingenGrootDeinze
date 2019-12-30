@@ -140,7 +140,13 @@ h2 {
     color: black;
     margin-bottom: 0;
     background-color: #F6FFFF;
+    padding: 10px 0;
 }
+
+    .jumbotron > h1 > .jumboflex > #jumbotitle {
+        text-size-adjust: 50%;
+        font-stretch:
+    }
 
 .jumboflex {
     margin: 0;
@@ -163,7 +169,7 @@ h2 {
 
         .jumboflex #jumboimage > img {
             width: 90%;
-            max-width: 400px;
+            max-width: 250px;
         }
 
 .dl-horizontal dt {
@@ -187,8 +193,8 @@ h2 {
 
 #sponsorTekst {
     margin-top: 20px;
-    height:33px;
-    padding:5px;
+    height: 33px;
+    padding: 5px;
 }
 
 #sponsorsCarousel {
@@ -201,7 +207,7 @@ h2 {
     height: auto;
     margin-top: auto;
     margin-bottom: auto;
-    color:white;
+    color: white;
 }
 
 .item {
@@ -210,6 +216,6 @@ h2 {
     background-color: #e44144;
 }
 
-.item > span > a {
-    color:white;
-}
+    .item > span > a {
+        color: white;
+    }
