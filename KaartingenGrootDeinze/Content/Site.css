@@ -143,10 +143,6 @@ h2 {
     padding: 10px 0;
 }
 
-    .jumbotron > h1 > .jumboflex > #jumbotitle {
-        text-size-adjust: 50%;
-        font-stretch:
-    }
 
 .jumboflex {
     margin: 0;
@@ -174,7 +170,7 @@ h2 {
 
 .dl-horizontal dt {
     text-align: left;
-    width: 80px;
+    width: 150px;
     padding-bottom: 5px;
 }
 
