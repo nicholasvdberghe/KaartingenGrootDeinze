@@ -9,7 +9,8 @@ namespace KaartingenGrootDeinze.DAL
 {
     public class KaartingContext : DbContext
     {
-        public KaartingContext() : base("DefaultConnection")
+        public KaartingContext() : base("KaartingenDeinze")
+            //public KaartingContext() : base("DefaultConnection")
         {
 
         }

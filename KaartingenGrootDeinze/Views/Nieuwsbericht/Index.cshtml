@@ -29,7 +29,14 @@
             <tr>
                 <td>@Html.DisplayFor(b => bericht.Datum)</td>
                 <td>@bericht.Titel</td>
-                <td>@bericht.Kaarting.Datum.ToShortDateString()</td>
+                @if (@bericht.KaartingId != null)
+                {
+                    <td>@bericht.Kaarting.Datum.ToShortDateString()</td>
+                }
+                else
+                {
+                    <td>/</td>
+                }
                 <td>
                     @Html.ActionLink("Details", "Details", new { id = bericht.NieuwsberichtId }, new { @class = "btn btn-primary" })
                     @if (Request.IsAuthenticated)
