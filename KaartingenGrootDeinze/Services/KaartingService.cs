@@ -100,8 +100,6 @@ namespace KaartingenGrootDeinze.Services
             //kaartingkolommen: Datum, Zaak.Naam, Zaak.Plaats, Prijzengeld, Startuur
 
             Table table = new Table(5);
-
-
             for(int rijnr = 0; rijnr < (kaartingen.Length/5); rijnr++)
             {
 
@@ -128,6 +126,7 @@ namespace KaartingenGrootDeinze.Services
             }
 
             /*
+             * //ging niet meer omdat cultureinfo ook toegepast moest worden op data in pdf
             int kolomnr = 0;
             foreach (string kaarting in kaartingen)
             {
