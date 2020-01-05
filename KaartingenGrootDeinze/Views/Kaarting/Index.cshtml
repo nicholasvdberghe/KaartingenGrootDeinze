@@ -59,12 +59,11 @@
     </thead>
     <tbody>
         @{ 
-            CultureInfo ci = new CultureInfo("nl-BE");
+            CultureInfo ci = new CultureInfo("nl-BE", false);
         }
         @foreach (var kaarting in Model)
         {
             string datum = kaarting.Datum.ToString("D", ci);
-
             <tr>
                 <td>
                     @datum

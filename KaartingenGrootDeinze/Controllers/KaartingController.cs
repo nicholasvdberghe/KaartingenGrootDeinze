@@ -2,9 +2,9 @@
 using KaartingenGrootDeinze.Services;
 using System;
 using System.Collections.Generic;
-using System.Web.Mvc;
-using System.IO;
 using System.Globalization;
+using System.IO;
+using System.Web.Mvc;
 
 namespace KaartingenGrootDeinze.Controllers
 {
@@ -122,10 +122,27 @@ namespace KaartingenGrootDeinze.Controllers
         [Route("PDF")]
         public FileResult ExportToPDF()
         {
+            //kaartingobjecten ophalen
             List<Kaarting> kaartingen = new List<Kaarting>();
             kaartingen = kaartingService.GetGefilterdeKaartingen(DateTime.Today, null);
+
+            //NL-datum meegeven
+            string[,] kaartingenMetDatumInNL = new string[kaartingen.Count, 5];
+            CultureInfo ci = new CultureInfo("nl-BE", false);
+            var rijnr = 0;
+            foreach (var kaarting in kaartingen)
+            {
+                kaartingenMetDatumInNL[rijnr, 0] = kaarting.Datum.ToString("D", ci);
+                kaartingenMetDatumInNL[rijnr, 1] = kaarting.Zaak.Naam;
+                kaartingenMetDatumInNL[rijnr, 2] = kaarting.Zaak.Plaats;
+                kaartingenMetDatumInNL[rijnr, 3] = "€ " + kaarting.Prijzengeld.ToString();
+                kaartingenMetDatumInNL[rijnr, 4] = kaarting.Startuur.ToString("HH: mm u.");
+                rijnr++;
+            }
+
+            //in stream steken
             MemoryStream memStream = new MemoryStream();
-            memStream = kaartingService.CreatePDF(memStream, kaartingen);
+            memStream = kaartingService.CreatePDF(memStream, kaartingenMetDatumInNL);
 
             byte[] bytesStream = memStream.ToArray();
 

@@ -90,38 +90,71 @@ namespace KaartingenGrootDeinze.Services
             }
         }
 
-        public MemoryStream CreatePDF(MemoryStream memStream, List<Kaarting> kaartingen)
+        public MemoryStream CreatePDF(MemoryStream memStream, string[,] kaartingen)
         {
             PdfWriter writer = new PdfWriter(memStream);
             PdfDocument pdfDoc = new PdfDocument(writer);
             Document doc = new Document(pdfDoc, new iText.Kernel.Geom.PageSize(612, 792));
             doc.SetMargins(40f, 40f, 40f, 40f);
 
+            //kaartingkolommen: Datum, Zaak.Naam, Zaak.Plaats, Prijzengeld, Startuur
+
             Table table = new Table(5);
 
-            foreach (var kaarting in kaartingen)
+
+            for(int rijnr = 0; rijnr < (kaartingen.Length/5); rijnr++)
             {
-                Cell cellDatum = new Cell(1, 1).Add(new Paragraph(kaarting.Datum.ToLongDateString())).SetBorder(Border.NO_BORDER).SetTextAlignment(TextAlignment.RIGHT).SetPaddingRight(20f);
+
+                    Cell cellDatum = new Cell(1, 1).Add(new Paragraph(kaartingen[rijnr, 0].ToString())).SetBorder(Border.NO_BORDER).SetTextAlignment(TextAlignment.RIGHT).SetPaddingRight(20f);
+                    table.AddCell(cellDatum);
+                    if (kaartingen[rijnr, 1].ToString() != "GEEN KAARTING")
+                    {
+                        Cell cellZaakNaam = new Cell(1, 1).Add(new Paragraph(kaartingen[rijnr, 1].ToString())).SetBorder(Border.NO_BORDER).SetPaddingRight(25f);
+                        table.AddCell(cellZaakNaam);
+                        Cell cellZaakPlaats = new Cell(1, 1).Add(new Paragraph(kaartingen[rijnr,2].ToString())).SetBorder(Border.NO_BORDER).SetPaddingRight(40f);
+                        table.AddCell(cellZaakPlaats);
+
+                        Cell cellPrijzengeld = new Cell(1, 1).Add(new Paragraph(kaartingen[rijnr, 3].ToString())).SetBorder(Border.NO_BORDER).SetPaddingRight(20f);
+                        table.AddCell(cellPrijzengeld);
+
+                        Cell cellStartuur = new Cell(1, 1).Add(new Paragraph(kaartingen[rijnr, 4].ToString())).SetBorder(Border.NO_BORDER);
+                        table.AddCell(cellStartuur);
+                    }
+                    else
+                    {
+                        Cell cell = new Cell(1, 4).Add(new Paragraph(kaartingen[rijnr, 1].ToString())).SetBorder(Border.NO_BORDER);
+                        table.AddCell(cell);
+                    }
+            }
+
+            /*
+            int kolomnr = 0;
+            foreach (string kaarting in kaartingen)
+            {
+                Cell cellDatum = new Cell(1, 1).Add(new Paragraph(kaarting[0].ToString())).SetBorder(Border.NO_BORDER).SetTextAlignment(TextAlignment.RIGHT).SetPaddingRight(20f);
                 table.AddCell(cellDatum);
-                if (kaarting.Zaak.Naam != "GEEN KAARTING")
+                if (kaarting[1].ToString() != "GEEN KAARTING")
                 {
-                    Cell cellZaakNaam = new Cell(1, 1).Add(new Paragraph(kaarting.Zaak.Naam)).SetBorder(Border.NO_BORDER).SetPaddingRight(25f);
+                    Cell cellZaakNaam = new Cell(1, 1).Add(new Paragraph(kaarting[1].ToString())).SetBorder(Border.NO_BORDER).SetPaddingRight(25f);
                     table.AddCell(cellZaakNaam);
-                    Cell cellZaakPlaats = new Cell(1, 1).Add(new Paragraph(kaarting.Zaak.Plaats)).SetBorder(Border.NO_BORDER).SetPaddingRight(40f);
+                    Cell cellZaakPlaats = new Cell(1, 1).Add(new Paragraph(kaarting[2].ToString())).SetBorder(Border.NO_BORDER).SetPaddingRight(40f);
                     table.AddCell(cellZaakPlaats);
 
-                    Cell cellPrijzengeld = new Cell(1, 1).Add(new Paragraph(kaarting.Prijzengeld.ToString("€ 0+"))).SetBorder(Border.NO_BORDER).SetPaddingRight(20f);
+                    Cell cellPrijzengeld = new Cell(1, 1).Add(new Paragraph(kaarting[3].ToString())).SetBorder(Border.NO_BORDER).SetPaddingRight(20f);
                     table.AddCell(cellPrijzengeld);
 
-                    Cell cellStartuur = new Cell(1, 1).Add(new Paragraph(kaarting.Startuur.ToString("HH:mm u."))).SetBorder(Border.NO_BORDER);
+                    Cell cellStartuur = new Cell(1, 1).Add(new Paragraph(kaarting[4].ToString())).SetBorder(Border.NO_BORDER);
                     table.AddCell(cellStartuur);
+                    kolomnr++;
                 }
                 else
                 {
-                    Cell cell = new Cell(1, 4).Add(new Paragraph(kaarting.Zaak.Naam)).SetBorder(Border.NO_BORDER);
+                    Cell cell = new Cell(1, 4).Add(new Paragraph(kaarting[1].ToString())).SetBorder(Border.NO_BORDER);
                     table.AddCell(cell);
+                    kolomnr++;
                 }
             }
+            */
             try
             {
                 doc.Add(new Paragraph("KAARTINGEN BIEDEN 2019 - DEINZE EN OMSTREKEN").SetBold());
