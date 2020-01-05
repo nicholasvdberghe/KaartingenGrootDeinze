@@ -1,4 +1,5 @@
 ﻿@using System.Linq;
+@using System.Globalization;
 
 @model List<KaartingenGrootDeinze.Models.Kaarting>
 
@@ -57,11 +58,16 @@
         </tr>
     </thead>
     <tbody>
+        @{ 
+            CultureInfo ci = new CultureInfo("nl-BE");
+        }
         @foreach (var kaarting in Model)
         {
+            string datum = kaarting.Datum.ToString("D", ci);
+
             <tr>
                 <td>
-                    @Html.DisplayFor(m => kaarting.Datum)
+                    @datum
                 </td>
                 <td>
                     @Html.DisplayFor(m => kaarting.Zaak.Naam)
