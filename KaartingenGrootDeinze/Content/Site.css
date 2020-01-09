@@ -225,10 +225,10 @@ h2 {
     background-color: #e44144;
 }
 
-        .item > span > a {
-            color: white;
-        }
+    .item > span > a {
+        color: white;
+    }
 
-            .item > span > a:hover {
-                text-decoration-line: none;
-            }
+        .item > span > a:hover {
+            text-decoration-line: none;
+        }
