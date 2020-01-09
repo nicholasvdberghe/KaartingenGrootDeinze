@@ -37,7 +37,7 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.FirstOrDefault().Datum.ToString("dddd dd/MM/yy"))
+                @Html.DisplayNameFor(model => model.FirstOrDefault().Datum)
             </th>
             <th>
                 Zaak
@@ -63,7 +63,7 @@
         }
         @foreach (var kaarting in Model)
         {
-            string datum = kaarting.Datum.ToString("D", ci);
+            string datum = kaarting.Datum.ToString("dddd dd/MM/yy", ci);
             <tr>
                 <td>
                     @datum
