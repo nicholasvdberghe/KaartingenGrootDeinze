@@ -1,60 +1,52 @@
-﻿body {
+﻿/* body & container */
+body {
     padding-top: 0;
     padding-bottom: 0;
 }
 
-/* Set padding to keep content from hitting the edges */
 .body-content {
     padding-left: 15px;
     padding-right: 15px;
     color: black;
 }
 
-/* Override the default bootstrap behavior where horizontal description lists 
-   will truncate terms that are too long to fit in the left column 
-*/
-.dl-horizontal dt {
-    white-space: normal;
+container {
+    background-color: black;
 }
 
-/* Set width on the form input elements since they're 100% wide by default */
-input, select {
-    max-width: 400px;
-    display: block;
-    margin-bottom: 10px;
+/* Jumbotron */
+.jumbotron {
+    color: black;
+    margin-bottom: 0;
+    background-color: #F6FFFF;
+    padding: 10px 0;
 }
 
-textarea, #Titel {
-    width: 400px;
-    display: block;
-    margin-bottom: 10px;
+.jumboflex {
+    margin: 0;
 }
 
-/* Styles for validation helpers -----------------------------------------------------------*/
-.field-validation-error {
-    color: #ff9500;
-}
+    .jumboflex #jumbotitle {
+        float: left;
+        padding: 10px;
+        text-align: center;
+        width: 70%;
+        min-width: 200px;
+    }
 
-.field-validation-valid {
-    display: none;
-}
+    .jumboflex #jumboimage {
+        display: inline-block;
+        padding: 10px;
+        width: 30%;
+        min-width: 200px;
+    }
 
-.input-validation-error {
-    border: 1px solid #ff9500;
-    background-color: #ffeeee;
-}
+        .jumboflex #jumboimage > img {
+            width: 90%;
+            max-width: 250px;
+        }
 
-.validation-summary-errors {
-    font-weight: bold;
-    color: #ff9500;
-}
-
-.validation-summary-valid {
-    display: none;
-}
-
-
-/*Navigation*/
+/* Navigation */
 .nav {
     background-color: black;
 }
@@ -68,7 +60,7 @@ textarea, #Titel {
     .navbar-nav > li > a:hover {
         background-color: #e44144;
         text-decoration-style: solid;
-        font-size: larger
+        font-size: larger;
     }
 
 /*Tables*/
@@ -88,9 +80,9 @@ table {
     }
 
         .table-hover > tbody > tr:hover {
+            border-bottom: 2px solid black;
             background-color: #e44144;
             color: #ffffff;
-            border-bottom: 2px solid black;
         }
 
         .table-hover > tbody > tr:last-child {
@@ -99,9 +91,9 @@ table {
         }
 
             .table-hover > tbody > tr:last-child:hover {
+                border-bottom: 2px solid black;
                 background-color: #e44144;
                 color: #ffffff;
-                border-bottom: 2px solid black;
             }
 
 thead {
@@ -131,57 +123,22 @@ btn {
         color: #ffffff;
     }
 
-/* other */
-body {
+/* Form input elements */
+input, select {
+    max-width: 400px;
+    display: block;
+    margin-bottom: 10px;
 }
 
-container {
-    background-color: black;
+textarea, #Titel {
+    width: 400px;
+    display: block;
+    margin-bottom: 10px;
 }
 
-.customError {
-    background-color: #e44144;
-    color: black;
-    border: 1px solid #000000;
-}
-
-h2 {
-    color: #e44144;
-}
-
-.jumbotron {
-    color: black;
-    margin-bottom: 0;
-    background-color: #F6FFFF;
-    padding: 10px 0;
-}
-
-
-.jumboflex {
-    margin: 0;
-}
-
-    .jumboflex #jumbotitle {
-        float: left;
-        padding: 10px;
-        text-align: center;
-        width: 70%;
-        min-width: 200px;
-    }
-
-    .jumboflex #jumboimage {
-        padding: 10px;
-        display: inline-block;
-        width: 30%;
-        min-width: 200px;
-    }
-
-        .jumboflex #jumboimage > img {
-            width: 90%;
-            max-width: 250px;
-        }
-
+/* Horizontal description lists */
 .dl-horizontal dt {
+    white-space: normal;
     text-align: left;
     width: 150px;
     padding-bottom: 5px;
@@ -192,14 +149,36 @@ h2 {
     padding-bottom: 5px;
 }
 
-#Afzender, #Boodschap, #Emailadres, #Onderwerp {
-    width: 250px;
+/* Validation & errors */
+.field-validation-error {
+    color: #ff9500;
 }
 
-#laatsteNieuwsbericht {
-    margin-bottom: 30px;
+.field-validation-valid {
+    display: none;
 }
 
+.input-validation-error {
+    border: 1px solid #ff9500;
+    background-color: #ffeeee;
+}
+
+.validation-summary-errors {
+    font-weight: bold;
+    color: #ff9500;
+}
+
+.validation-summary-valid {
+    display: none;
+}
+
+.customError {
+    background-color: #e44144;
+    color: black;
+    border: 1px solid #000000;
+}
+
+/* Carousel */
 #sponsorTekst {
     margin-top: 20px;
     height: 33px;
@@ -232,3 +211,16 @@ h2 {
         .item > span > a:hover {
             text-decoration-line: none;
         }
+
+/* Other */
+h2 {
+    color: #e44144;
+}
+
+#Afzender, #Boodschap, #Emailadres, #Onderwerp {
+    width: 250px;
+}
+
+#laatsteNieuwsbericht {
+    margin-bottom: 30px;
+}
