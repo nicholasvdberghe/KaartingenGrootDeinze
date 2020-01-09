@@ -132,11 +132,11 @@ namespace KaartingenGrootDeinze.Controllers
             var rijnr = 0;
             foreach (var kaarting in kaartingen)
             {
-                kaartingenMetDatumInNL[rijnr, 0] = kaarting.Datum.ToString("D", ci);
+                kaartingenMetDatumInNL[rijnr, 0] = kaarting.Datum.ToString("dddd dd/MM/yy", ci);
                 kaartingenMetDatumInNL[rijnr, 1] = kaarting.Zaak.Naam;
                 kaartingenMetDatumInNL[rijnr, 2] = kaarting.Zaak.Plaats;
                 kaartingenMetDatumInNL[rijnr, 3] = "€ " + kaarting.Prijzengeld.ToString();
-                kaartingenMetDatumInNL[rijnr, 4] = kaarting.Startuur.ToString("HH: mm u.");
+                kaartingenMetDatumInNL[rijnr, 4] = kaarting.Startuur.ToString("HH.mm u.");
                 rijnr++;
             }
 
