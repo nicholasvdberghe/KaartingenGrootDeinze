@@ -11,7 +11,7 @@ namespace KaartingenGrootDeinze.Models
     public class Kaarting
     {
         public int KaartingId { get; set; }
-        [DisplayFormat(DataFormatString = "{0: dddd dd/MM/yy}")]
+        [DisplayFormat(DataFormatString = "{0: dddd dd/MM/yy}", ApplyFormatInEditMode = true)]
         public DateTime Datum { get; set; }
         [DisplayFormat(DataFormatString = "{0: € ##0}")]
         public int Prijzengeld { get; set; }

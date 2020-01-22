@@ -10,7 +10,6 @@ using System.Threading;
 
 namespace KaartingenGrootDeinze.Controllers
 {
-    [RoutePrefix("Home")]
     public class HomeController : Controller
     {
         private KaartingService kaartingService = new KaartingService();
