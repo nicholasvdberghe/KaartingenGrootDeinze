@@ -11,7 +11,6 @@
         <tr>
             <th>@Html.DisplayNameFor(model => model.First().Datum)</th>
             <th>@Html.DisplayNameFor(model => model.First().Titel)</th>
-            <th>Kaarting</th>
             @if (Request.IsAuthenticated)
             {
                 <th>Bewerkingen</th>
@@ -29,14 +28,6 @@
             <tr>
                 <td>@Html.DisplayFor(b => bericht.Datum)</td>
                 <td>@bericht.Titel</td>
-                @if (@bericht.KaartingId != null)
-                {
-                    <td>@bericht.Kaarting.Datum.ToShortDateString()</td>
-                }
-                else
-                {
-                    <td>/</td>
-                }
                 <td>
                     @Html.ActionLink("Details", "Details", new { id = bericht.NieuwsberichtId }, new { @class = "btn btn-primary" })
                     @if (Request.IsAuthenticated)

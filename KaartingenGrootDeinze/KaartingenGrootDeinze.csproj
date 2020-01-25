@@ -250,6 +250,10 @@
     <Compile Include="Migrations\201912191834483_NieuwsberichtVM.Designer.cs">
       <DependentUpon>201912191834483_NieuwsberichtVM.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202001251625298_Nieuwsbericht_kaartingid weg.cs" />
+    <Compile Include="Migrations\202001251625298_Nieuwsbericht_kaartingid weg.Designer.cs">
+      <DependentUpon>202001251625298_Nieuwsbericht_kaartingid weg.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\ContactViewModel.cs" />
@@ -389,6 +393,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201912191834483_NieuwsberichtVM.resx">
       <DependentUpon>201912191834483_NieuwsberichtVM.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202001251625298_Nieuwsbericht_kaartingid weg.resx">
+      <DependentUpon>202001251625298_Nieuwsbericht_kaartingid weg.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

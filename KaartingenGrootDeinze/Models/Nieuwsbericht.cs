@@ -20,8 +20,5 @@ namespace KaartingenGrootDeinze.Models
         public string Inhoud { get; set; }
         [DisplayFormat(DataFormatString = "{0: dd/MM/yy}")]
         public DateTime Datum { get; set; }
-
-        public int? KaartingId { get; set; }
-        public virtual Kaarting Kaarting { get; set; }
     }
 }

@@ -18,10 +18,5 @@ namespace KaartingenGrootDeinze.Models
         [DataType(DataType.Date)]
         [Required(ErrorMessage = "{0} is verplicht.")]
         public DateTime Datum { get; set; }
-
-        [Display(Name = "Kaarting")]
-        public int? KaartingId { get; set; }
-        [Display(Name = "Kaarting")]
-        public List<Kaarting> Kaartingen { get; set; }
     }
 }
