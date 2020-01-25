@@ -15,8 +15,6 @@
     @Html.LabelFor(m => m.Inhoud)
     @Html.ValidationMessageFor(m => m.Inhoud)
     @Html.EditorFor(m => m.Inhoud)
-    @Html.LabelFor(m => m.Kaartingen)
-    @Html.DropDownListFor(m => m.KaartingId, new SelectList(Model.Kaartingen, "KaartingId", "Datum"), "-- Selecteer --")
 
     var url = Url.Action("Index", "Nieuwsbericht", null);
     <input type="submit" class="btn btn-primary" value="Opslaan" />

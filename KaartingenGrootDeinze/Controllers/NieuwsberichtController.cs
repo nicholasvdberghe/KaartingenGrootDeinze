@@ -35,7 +35,6 @@ namespace KaartingenGrootDeinze.Controllers
             var viewModel = new NieuwsberichtViewModel
             {
                 Datum = new Nieuwsbericht().Datum,
-                Kaartingen = kaartingService.GetGefilterdeKaartingen(ondergrens, null)
             };
             return View(viewModel);
         }
@@ -49,7 +48,6 @@ namespace KaartingenGrootDeinze.Controllers
                 {
                     Titel = form.Titel,
                     Inhoud = form.Inhoud,
-                    KaartingId = form.KaartingId
                 };
                 nieuwsberichtService.Insert(nb);
                 return RedirectToAction("Index");
@@ -71,8 +69,6 @@ namespace KaartingenGrootDeinze.Controllers
                 Inhoud = bericht.Inhoud,
                 Titel = bericht.Titel,
                 NieuwsberichtId = bericht.NieuwsberichtId,
-                KaartingId = bericht.KaartingId,
-                Kaartingen = kaartingService.GetGefilterdeKaartingen(ondergrens, null)
             };
             return View(viewModel);
         }
@@ -87,7 +83,6 @@ namespace KaartingenGrootDeinze.Controllers
                     NieuwsberichtId = form.NieuwsberichtId,
                     Titel = form.Titel,
                     Inhoud = form.Inhoud,
-                    KaartingId = form.KaartingId,
                     Datum = form.Datum
                 };
                 nieuwsberichtService.Update(nb);

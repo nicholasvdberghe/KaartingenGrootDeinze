@@ -18,8 +18,6 @@
     @Html.LabelFor(m => m.Inhoud)
     @Html.ValidationMessageFor(m => m.Inhoud)
     @Html.EditorFor(m => m.Inhoud)
-    @Html.LabelFor(m => m.KaartingId)
-    @Html.DropDownListFor(m => m.KaartingId, new SelectList(Model.Kaartingen.OrderBy(m => m.Datum).ToList(), "KaartingId", "Datum"))
 
     var url = Url.Action("Index", "Nieuwsbericht", null);
     <input type="submit" class="btn btn-primary" value="Opslaan" />

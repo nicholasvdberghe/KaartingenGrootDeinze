@@ -11,7 +11,7 @@ namespace KaartingenGrootDeinze.Services
         {
             using (var db = new KaartingContext())
             {
-                return db.Nieuwsberichten.Include("Kaarting").OrderByDescending(n => n.Datum).ToList();
+                return db.Nieuwsberichten.OrderByDescending(n => n.Datum).ToList();
             }
         }
 
@@ -20,7 +20,6 @@ namespace KaartingenGrootDeinze.Services
             using (var db = new KaartingContext())
             {
                 Nieuwsbericht nb = db.Nieuwsberichten.Find(id);
-                nb.Kaarting = db.Kaartingen.Find(nb.KaartingId);
                 return nb;
             }
         }
@@ -44,7 +43,6 @@ namespace KaartingenGrootDeinze.Services
                 {
                     entity.Titel = nb.Titel;
                     entity.Inhoud = nb.Inhoud;
-                    entity.KaartingId = nb.KaartingId;
                     entity.Datum = nb.Datum;
                     db.SaveChanges();
                 }
