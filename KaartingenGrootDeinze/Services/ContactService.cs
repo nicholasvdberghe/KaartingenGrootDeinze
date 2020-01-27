@@ -20,6 +20,8 @@ namespace KaartingenGrootDeinze.Services
 
                     mail.From = new MailAddress(vanAdres, "Kaartingen Deinze");
                     mail.To.Add(new MailAddress(naarAdres));
+                    mail.To.Add(new MailAddress(vanAdres));
+                    mail.To.Add("gaby.van.den.berghe@hotmail.com");
                     mail.Subject = onderwerp;
                     mail.Body = boodschap;
                     mail.IsBodyHtml = true;
