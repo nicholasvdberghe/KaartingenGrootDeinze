@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Net;
 using System.Net.Mail;
+using System.Text;
 using System.Web;
 
 namespace KaartingenGrootDeinze.Services
@@ -24,9 +25,10 @@ namespace KaartingenGrootDeinze.Services
                     mail.Subject = onderwerp;
                     mail.Body = boodschap;
                     mail.IsBodyHtml = true;
+                    mail.BodyEncoding = Encoding.Default;
                     try
                     {
-                        using (var smtpClient = new SmtpClient("smtp.live.com", 25))
+                        using (var smtpClient = new SmtpClient("smtp.live.com", 587))
                         {
                             smtpClient.EnableSsl = true;
                             smtpClient.UseDefaultCredentials = false;
