@@ -126,7 +126,7 @@ namespace KaartingenGrootDeinze.Controllers
             List<Kaarting> kaartingen = new List<Kaarting>();
             kaartingen = kaartingService.GetGefilterdeKaartingen(DateTime.Today, null);
 
-            //NL-datum meegeven
+            //NL-locale meegeven
             string[,] kaartingenMetDatumInNL = new string[kaartingen.Count, 5];
             CultureInfo ci = new CultureInfo("nl-BE", false);
             var rijnr = 0;
