@@ -348,6 +348,7 @@
     <Content Include="Views\Nieuwsbericht\Details.cshtml" />
     <Content Include="Views\Nieuwsbericht\VerwijderenForm.cshtml" />
     <Content Include="Views\Home\Bedankt.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\Date.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
