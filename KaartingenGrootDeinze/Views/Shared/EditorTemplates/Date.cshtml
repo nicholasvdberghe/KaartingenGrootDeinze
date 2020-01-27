@@ -4,8 +4,7 @@
     object objAttributes;
     if (ViewData.TryGetValue("htmlAttributes", out objAttributes))
     {
-        htmlAttributes = objAttributes as IDictionary<string, object> ??
-            HtmlHelper.AnonymousObjectToHtmlAttributes(objAttributes);
+        htmlAttributes = objAttributes as IDictionary<string, object> ?? HtmlHelper.AnonymousObjectToHtmlAttributes(objAttributes);
     }
     else
     {
