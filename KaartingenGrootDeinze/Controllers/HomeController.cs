@@ -39,23 +39,21 @@ namespace KaartingenGrootDeinze.Controllers
             if (ModelState.IsValid)
             {
                 //prepare email
-                var afzender = vm.Afzender;
-                var afzenderAdres = vm.Emailadres;
-                var vanAdres = "nicholasvdberghe@hotmail.com";
-                var naarAdres = "gaby.van.den.berghe@hotmail.com";
-                var onderwerp = "Nieuw bericht Kaartingen Deinze: " + vm.Onderwerp;
-                var boodschap = new StringBuilder();
+                string afzender = vm.Afzender;
+                string afzenderAdres = vm.Emailadres;
+                string ontvanger = "gaby.van.den.berghe@hotmail.com";
+                string onderwerp = "Nieuw bericht Kaartingen Deinze: " + vm.Onderwerp;
+                StringBuilder boodschap = new StringBuilder();
                 boodschap.Append("Naam: " + vm.Afzender + "<br/>");
                 boodschap.Append("E-mail: " + vm.Emailadres + "<br/>");
                 boodschap.Append("Onderwerp: " + vm.Onderwerp + "<br/>");
                 boodschap.Append("Boodschap: " + vm.Boodschap);
 
                 //start email thread
-                var tEmail = new Thread(() => contactService.VerstuurEmail(afzender, afzenderAdres, vanAdres, naarAdres, onderwerp, boodschap.ToString()));
+                var tEmail = new Thread(() => contactService.VerstuurEmail(afzender, afzenderAdres, ontvanger, onderwerp, boodschap.ToString()));
                 tEmail.Start();
             }
             return View("Bedankt");
         }
-
     }
 }

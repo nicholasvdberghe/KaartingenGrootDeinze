@@ -8,32 +8,31 @@ namespace KaartingenGrootDeinze.Services
 {
     public class ContactService
     {
-        public void VerstuurEmail(string afzender, string afzenderAdres, string vanAdres, string naarAdres, string onderwerp, string boodschap)
+        public void VerstuurEmail(string afzender, string afzenderAdres, string ontvanger, string onderwerp, string boodschap)
         {
             try
             {
                 using (var mail = new MailMessage())
                 {
-                    const string email = "nicholasvdberghe@hotmail.com";
-                    const string wachtwoord = "@Milibeetenn1234";
+                    const string username = "nicholas@inksniper.be";
+                    const string wachtwoord = "@ir77icy1988";
+                    var loginInfo = new NetworkCredential(username, wachtwoord);
 
-                    var loginInfo = new NetworkCredential(email, wachtwoord);
-
-                    mail.From = new MailAddress(vanAdres, "Kaartingen Deinze");
-                    mail.To.Add(new MailAddress(naarAdres));
-                    mail.To.Add(new MailAddress(vanAdres));
+                    mail.From = new MailAddress(username, "Kaartingen Deinze");
+                    mail.To.Add(new MailAddress(ontvanger));
                     mail.Subject = onderwerp;
                     mail.Body = boodschap;
                     mail.IsBodyHtml = true;
                     mail.BodyEncoding = Encoding.Default;
                     try
                     {
-                        using (var smtpClient = new SmtpClient("smtp.live.com", 587))
+                        using (var smtpClient = new SmtpClient("mail.inksniper.be", 25))
                         {
-                            smtpClient.EnableSsl = true;
+                            smtpClient.EnableSsl = false;
                             smtpClient.UseDefaultCredentials = false;
                             smtpClient.DeliveryMethod = SmtpDeliveryMethod.Network;
                             smtpClient.Credentials = loginInfo;
+                            smtpClient.Timeout = 100000;
                             smtpClient.Send(mail);
                         }
                     }

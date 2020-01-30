@@ -5,6 +5,11 @@
 }
 <h2>Contacteer ons</h2>
 
+<p>Bel ons op het nummer 0474 37 14 09 (Gaby).</p>
+
+
+
+
 @using (Html.BeginForm("Contacteren", "Home", FormMethod.Post))
 {
     @Html.LabelFor(m => m.Afzender)
@@ -20,7 +25,10 @@
     @Html.ValidationMessageFor(m => m.Boodschap, "*")
     @Html.EditorFor(m => m.Boodschap)
 
-    <input value="Versturen" type="submit" class="btn btn-primary"/>
+    <input value="Versturen" type="submit" class="btn btn-primary" />
 
     @Html.ValidationSummary("Er zijn validatiefouten:")
 }
+
+
+
