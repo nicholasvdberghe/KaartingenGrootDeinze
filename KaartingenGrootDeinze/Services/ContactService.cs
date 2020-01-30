@@ -52,8 +52,6 @@ namespace KaartingenGrootDeinze.Services
                     {
                         HttpContext.Current.Response.Write("Aflevering mislukt - nieuwe poging binnen 5 seconden.");
                         System.Threading.Thread.Sleep(5000);
-                        //resend
-                        //smtpClient.Send(boodschap)
                     }
                     else
                     {
